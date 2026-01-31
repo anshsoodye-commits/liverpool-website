@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liverpool FC 2025/26</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .quick-link {
+      background: #1a1a1a;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      min-width: 180px;
+    }
+
+    .quick-link:hover {
+      background: #c8102e;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .featured-players {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .player-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .player-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(200,16,46,0.4);
+    }
+
+    .player-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .player-info {
+      padding: 1rem;
+    }
+
+    .player-info h3 a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .player-info h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .wiki-btn {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.4rem 0.7rem;
+      background: #c8102e;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .wiki-btn:hover {
+      background: #a50d26;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 1.5rem;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Welcome to Liverpool FC 2025/26</h1>
+  <p>Official Fan Page & University Project</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="logo"></div>
+
+  <!-- MENU BUTTON -->
+  <div class="menu-btn" id="menuBtn">☰</div>
+
+  <!-- NAV LINKS -->
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="pages/squad/squad.html">Squad</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="pages/competitions/competition.html">Competition</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Premier League Glory Awaits!</h2>
+    <img src="assets/images/background.jpg" alt="Liverpool FC Stadium">
+    <p>Follow the Reds as they battle for trophies in the 2025/26 season!</p>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links">
+    <a href="pages/squad/squad.html" class="quick-link">View Squad</a>
+    <a href="fixtures.html" class="quick-link">Upcoming Fixtures</a>
+    <a href="pages/competitions/competition.html" class="quick-link">Competition</a> 
+    <a href="contact.html" class="quick-link">Contact</a>
+  </section>
+
+  <!-- Featured Players -->
+  <h2 style="text-align:center; margin-bottom:1rem;">Featured Players</h2>
+  <section class="featured-players" id="featuredPlayers"></section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Liverpool FC Fan Website | University Project
+</footer>
+
+<script>
+const featured = [
+  {name:"Mohamed Salah",position:"Forward",number:11,nationality:"Egypt",image:"assets/images/salah.jpg",page:"players/salah.html",wiki:"https://en.wikipedia.org/wiki/Mohamed_Salah"},
+  {name:"Alisson Becker",position:"Goalkeeper",number:1,nationality:"Brazil",image:"assets/images/allison.jpg",page:"players/alisson.html",wiki:"https://en.wikipedia.org/wiki/Alisson_Becker"},
+  {name:"Virgil van Dijk",position:"Defender",number:4,nationality:"Netherlands",image:"assets/images/van-dijk.jpg",page:"players/van-dijk.html",wiki:"https://en.wikipedia.org/wiki/Virgil_van_Dijk"},
+  {name:"Curtis Jones",position:"Midfielder",number:17,nationality:"England",image:"assets/images/jones.jpg",page:"players/jones.html",wiki:"https://en.wikipedia.org/wiki/Curtis_Jones"}
+];
+
+const container = document.getElementById("featuredPlayers");
+
+featured.forEach(p=>{
+  container.innerHTML += `
+    <article class="player-card">
+      <a href="${p.wiki}" target="_blank">
+        <img src="${p.image}" alt="${p.name}">
+      </a>
+      <div class="player-info">
+        <h3><a href="${p.page}">${p.name}</a></h3>
+        <p><strong>Position:</strong> ${p.position}</p>
+        <p><strong>Number:</strong> ${p.number}</p>
+        <p><strong>Nationality:</strong> ${p.nationality}</p>
+        <a class="wiki-btn" href="${p.wiki}" target="_blank">📖 Wikipedia</a>
+      </div>
+    </article>
+  `;
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+

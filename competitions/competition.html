@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liverpool FC Competitions 2025/26</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .competitions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .competition-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+      padding-bottom: 1rem;
+    }
+
+    .competition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(200,16,46,0.4);
+    }
+
+    .competition-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .competition-info {
+      padding: 1rem;
+    }
+
+    .competition-info h3 {
+      margin: 0.5rem 0;
+    }
+
+    .competition-info p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin: 0.2rem 0;
+    }
+
+    .trophies {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .trophies span {
+      font-size: 1.2rem;
+      color: gold;
+    }
+
+    .status {
+      font-weight: bold;
+      margin-top: 0.3rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Liverpool FC Competitions 2025/26</h1>
+  <p>Track all ongoing tournaments and trophy achievements</p>
+</header>
+
+<nav>
+  <a href="../../index.html">Home</a>
+  <a href="../squad/squad.html">Squad</a>
+  <a href="../../fixtures.html">Fixtures</a>
+  <a href="../../contact.html">Contact</a>
+  <a href="competition.html">Competition</a>
+</nav>
+
+<main>
+  <section class="competitions-grid" id="competitionsGrid"></section>
+</main>
+
+<footer>
+  © <span id="year"></span> Liverpool FC Fan Website | University Project
+</footer>
+
+<script>
+const competitions = [
+  {name:"Premier League",type:"League",image:"../../assets/images/premier-league.jpg",status:"Ongoing",trophies:19},
+  {name:"FA Cup",type:"Cup",image:"../../assets/images/fa-cup.jpg",status:"Ongoing",trophies:8},
+  {name:"EFL Cup",type:"Cup",image:"../../assets/images/efl-cup.jpg",status:"Ongoing",trophies:9},
+  {name:"UEFA Champions League",type:"International",image:"../../assets/images/champion-league.jpg",status:"Ongoing",trophies:6},
+  {name:"UEFA Super Cup",type:"International",image:"../../assets/images/super-cup.jpg",status:"Disqualified",trophies:4},
+  {name:"FIFA Club World Cup",type:"International",image:"../../assets/images/fifa.jpg",status:"Disqualified",trophies:1}
+];
+
+const compGrid = document.getElementById("competitionsGrid");
+
+function renderCompetitions(list){
+  compGrid.innerHTML = "";
+
+  list.forEach(c => {
+    let trophyHTML = "";
+    for(let i = 0; i < c.trophies; i++){
+      trophyHTML += "<span>🏆</span>";
+    }
+
+    let statusColor = c.status === "Ongoing" ? "#00ff00" : "#888";
+
+    compGrid.innerHTML += `
+      <article class="competition-card">
+        <img src="${c.image}" alt="${c.name}">
+        <div class="competition-info">
+          <h3>${c.name}</h3>
+          <p><strong>Type:</strong> ${c.type}</p>
+          <p class="status" style="color:${statusColor}">
+            <strong>Status:</strong> ${c.status}
+          </p>
+          <div class="trophies" title="${c.trophies} trophies">
+            ${trophyHTML}
+          </div>
+        </div>
+      </article>
+    `;
+  });
+}
+
+renderCompetitions(competitions);
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+

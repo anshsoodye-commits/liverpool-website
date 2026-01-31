@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool FC</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      border-left: 5px solid #c8102e;
+      padding-left: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      background: #c8102e;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    td.club {
+      text-align: left;
+    }
+
+    tr:hover {
+      background: #222;
+    }
+
+    /* Highlight Liverpool */
+    tr.liverpool {
+      background: rgba(200, 16, 46, 0.25);
+      font-weight: bold;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Liverpool FC</h1>
+    <p>Premier League – 2025/26 Season</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pages/squad/squad.html">Squad</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="contact.html">Contact</a>
+    <a href="pages/competitions/competition.html">Competition</a> 
+</nav>
+
+  <main>
+
+    <!-- LEAGUE TABLE -->
+    <h2>Premier League Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pos</th>
+          <th>Club</th>
+          <th>MP</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+          <th>GF</th>
+          <th>GA</th>
+          <th>GD</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td class="club">Arsenal</td><td>23</td><td>15</td><td>5</td><td>3</td><td>42</td><td>17</td><td>+25</td><td>50</td>
+        </tr>
+        <tr>
+          <td>2</td><td class="club">Man City</td><td>23</td><td>14</td><td>4</td><td>5</td><td>47</td><td>21</td><td>+26</td><td>46</td>
+        </tr>
+        <tr>
+          <td>3</td><td class="club">Aston Villa</td><td>23</td><td>14</td><td>4</td><td>5</td><td>35</td><td>25</td><td>+10</td><td>46</td>
+        </tr>
+        <tr>
+          <td>4</td><td class="club">Man United</td><td>23</td><td>10</td><td>8</td><td>5</td><td>41</td><td>34</td><td>+7</td><td>38</td>
+        </tr>
+        <tr>
+          <td>5</td><td class="club">Chelsea</td><td>23</td><td>10</td><td>7</td><td>6</td><td>39</td><td>25</td><td>+14</td><td>37</td>
+        </tr>
+        <tr class="liverpool">
+          <td>6</td><td class="club">Liverpool</td><td>23</td><td>10</td><td>6</td><td>7</td><td>35</td><td>32</td><td>+3</td><td>36</td>
+        </tr>
+        <tr>
+          <td>7</td><td class="club">Fulham</td><td>23</td><td>10</td><td>4</td><td>9</td><td>32</td><td>32</td><td>0</td><td>34</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- FIXTURES -->
+    <h2>Liverpool Fixtures</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Competition</th>
+          <th>Opponent</th>
+          <th>Venue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01 Feb 2026</td>
+          <td>Premier League</td>
+          <td>Newcastle United</td>
+          <td>Anfield</td>
+        </tr>
+        <tr>
+          <td>08 Feb 2026</td>
+          <td>Premier League</td>
+          <td>Manchester City</td>
+          <td>Anfield</td>
+        </tr>
+        <tr>
+          <td>12 Feb 2026</td>
+          <td>Premier League</td>
+          <td>Sunderland</td>
+          <td>Stadium of Light</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Liverpool FC Fan Website | University Project</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
