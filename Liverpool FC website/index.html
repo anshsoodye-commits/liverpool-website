@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool FC Fan Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+    }
+
+    header p {
+      margin-top: 0.7rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      background: #c8102e;
+      color: white;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .hero a:hover {
+      background: #a60d24;
+      transform: translateY(-2px);
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(200, 16, 46, 0.4);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      color: #c8102e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Liverpool FC Fan Website</h1>
+    <p>Unofficial fan project showcasing the team, players, and club info.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="squad.html">Squad</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <h2>Welcome to the Reds Fan Hub</h2>
+      <p>Explore the squad, view upcoming fixtures, and learn more about your favourite players.</p>
+      <a href="squad.html">View Squad</a>
+    </section>
+
+    <section class="sections">
+
+      <div class="card">
+        <h3>Squad</h3>
+        <p>Browse the full Liverpool FC squad and click on any player to learn more.</p>
+        <a href="squad.html">Go to Squad →</a>
+      </div>
+
+      <div class="card">
+        <h3>Fixtures</h3>
+        <p>Check upcoming matches, kick-off times, and venues.</p>
+        <a href="fixtures.html">View Fixtures →</a>
+      </div>
+
+      <div class="card">
+        <h3>Contact</h3>
+        <p>Get in touch for feedback, collaboration, or project inquiries.</p>
+        <a href="contact.html">Contact Us →</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Liverpool FC Fan Website | University Project</p>
+    <p>This is an unofficial fan site. All trademarks belong to their respective owners.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

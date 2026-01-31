@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool FC Squad 2025/26</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .controls input, .controls select {
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .player-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .player-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(200, 16, 46, 0.4);
+    }
+
+    .player-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    .player-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .player-info {
+      padding: 1rem;
+    }
+
+    .player-info h3 {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .player-info p {
+      margin: 0.2rem 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Team Players</h1>
+    <p>Meet the Liverpool FC squad for the 2025/26 season.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="squad.html">Squad</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section class="controls" aria-label="Search and filter players">
+      <input type="text" id="searchInput" placeholder="Search players by name..." aria-label="Search players" />
+      <select id="positionFilter" aria-label="Filter by position">
+        <option value="all">All Positions</option>
+        <option value="Goalkeeper">Goalkeeper</option>
+        <option value="Defender">Defender</option>
+        <option value="Midfielder">Midfielder</option>
+        <option value="Forward">Forward</option>
+      </select>
+    </section>
+
+    <section class="players-grid" id="playersGrid" aria-live="polite"></section>
+
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Liverpool FC Fan Website | University Project</p>
+    <p>Data sourced from public football databases and Wikipedia.</p>
+  </footer>
+
+  <script>
+    const players = [
+      { name: "Alisson Becker", position: "Goalkeeper", number: 1, nationality: "Brazil", image: "../../assets/images/allison.jpg", wiki: "https://en.wikipedia.org/wiki/Alisson_Becker" },
+      { name: "Virgil van Dijk", position: "Defender", number: 4, nationality: "Netherlands", image: "../../assets/images/van-dijk.jpg", wiki: "https://en.wikipedia.org/wiki/Virgil_van_Dijk" },
+      { name: "Ibrahima Konaté", position: "Defender", number: 5, nationality: "France", image: "../../assets/images/konate.jpg", wiki: "https://en.wikipedia.org/wiki/Ibrahima_Konate" },
+      { name: "Andrew Robertson", position: "Defender", number: 26, nationality: "Scotland", image: "../../assets/images/robertson.jpg", wiki: "https://en.wikipedia.org/wiki/Andrew_Robertson" },
+      { name: "Jeremie Frimpong", position: "Defender", number: 30, nationality: "Netherlands", image: "../../assets/images/frimpong.jpg", wiki: "https://en.wikipedia.org/wiki/Jeremie_Frimpong" },
+      { name: "Milos Kerkez", position: "Defender", number: 3, nationality: "Hungary", image: "../../assets/images/kerkez.jpg", wiki: "https://en.wikipedia.org/wiki/Milos_Kerkez" },
+      { name: "Conor Bradley", position: "Defender", number: 84, nationality: "Northern Ireland", image: "../../assets/images/bradley.jpg", wiki: "https://en.wikipedia.org/wiki/Conor_Bradley" },
+      { name: "Florian Wirtz", position: "Midfielder", number: 10, nationality: "Germany", image: "../../assets/images/wirtz.jpg", wiki: "https://en.wikipedia.org/wiki/Florian_Wirtz" },
+      { name: "Dominik Szoboszlai", position: "Midfielder", number: 8, nationality: "Hungary", image:"../../assets/images/szoboszlai.jpg" , wiki:"https://en.wikipedia.org/wiki/Dominik_Szoboszlai"},
+      { name:"Ryan Gravenberch" , position:"Midfielder" , number:"38" , nationality:"Netherlands" , image:"../../assets/images/gravenberch.jpg" , wiki:"https://en.wikipedia.org/wiki/Ryan_Gravenberch"},
+      { name:"Alexis Mac Allister" , position:"Midfielder" , number:"10" , nationality:"Argentina" , image:"../../assets/images/mac-allister.jpg" , wiki:"https://en.wikipedia.org/wiki/Alexis_Mac_Allister"},
+      { name: "Curtis Jones", position: "Midfielder", number: 17, nationality: "England", image: "../../assets/images/jones.jpg", wiki: "https://en.wikipedia.org/wiki/Curtis_Jones" },
+      { name: "Mohamed Salah", position: "Forward", number: 11, nationality: "Egypt", image: "../../assets/images/salah.jpg", wiki: "https://en.wikipedia.org/wiki/Mohamed_Salah" },
+      { name: "Alexander Isak", position: "Forward", number: 9, nationality: "Sweden", image: "../../assets/images/isak.jpg", wiki: "https://en.wikipedia.org/wiki/Alexander_Isak" },
+      { name: "Hugo Ekitike", position: "Forward", number: 27, nationality: "France", image: "../../assets/images/ekitike.jpg", wiki: "https://en.wikipedia.org/wiki/Hugo_Ekitike" },
+      { name: "Cody Gakpo", position: "Forward", number: 18, nationality: "Netherlands", image: "../../assets/images/gakpo.jpg", wiki: "https://en.wikipedia.org/wiki/Cody_Gakpo" },
+      { name: "Federico Chiesa", position: "Forward", number: 14, nationality: "Italy", image: "../../assets/images/chiesa.jpg", wiki: "https://en.wikipedia.org/wiki/Federico_Chiesa" },
+      { name: "Ngumoha", position: "Forward", number: 67, nationality: "England", image: "../../assets/images/ngumoha.jpg", wiki: "https://en.wikipedia.org/wiki/Ngumoha" }
+    ];
+
+    const grid = document.getElementById("playersGrid");
+    const searchInput = document.getElementById("searchInput");
+    const positionFilter = document.getElementById("positionFilter");
+
+    function renderPlayers(list) {
+      grid.innerHTML = "";
+      list.forEach(player => {
+        const card = document.createElement("article");
+        card.className = "player-card";
+        card.innerHTML = `
+          <a href="${player.wiki}" target="_blank" rel="noopener noreferrer" aria-label="Open Wikipedia page for ${player.name}">
+            <img src="${player.image}" alt="${player.name} portrait">
+            <div class="player-info">
+              <h3>${player.name}</h3>
+              <p><strong>Position:</strong> ${player.position}</p>
+              <p><strong>Number:</strong> ${player.number}</p>
+              <p><strong>Nationality:</strong> ${player.nationality}</p>
+            </div>
+          </a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterPlayers() {
+      const searchText = searchInput.value.toLowerCase();
+      const selectedPosition = positionFilter.value;
+
+      const filtered = players.filter(player => {
+        const matchesName = player.name.toLowerCase().includes(searchText);
+        const matchesPosition = selectedPosition === "all" || player.position === selectedPosition;
+        return matchesName && matchesPosition;
+      });
+
+      renderPlayers(filtered);
+    }
+
+    searchInput.addEventListener("input", filterPlayers);
+    positionFilter.addEventListener("change", filterPlayers);
+
+    renderPlayers(players);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

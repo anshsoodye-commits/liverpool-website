@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool FC Fixtures</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c8102e, #7a0019);
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #c8102e;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      background: #c8102e;
+    }
+
+    tr:hover {
+      background: #222;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Liverpool FC Fixtures</h1>
+    <p>Upcoming matches for the 2025/26 season.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="squad.html">Squad</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Competition</th>
+          <th>Opponent</th>
+          <th>Venue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12 Aug 2025</td>
+          <td>Premier League</td>
+          <td>Manchester United</td>
+          <td>Anfield</td>
+        </tr>
+        <tr>
+          <td>19 Aug 2025</td>
+          <td>Premier League</td>
+          <td>Arsenal</td>
+          <td>Emirates Stadium</td>
+        </tr>
+        <tr>
+          <td>26 Aug 2025</td>
+          <td>Champions League</td>
+          <td>Barcelona</td>
+          <td>Anfield</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Liverpool FC Fan Website | University Project</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
